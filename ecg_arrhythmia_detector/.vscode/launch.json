@@ -1,0 +1,60 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Train: full pipeline",
+      "type": "python",
+      "request": "launch",
+      "module": "src.train",
+      "args": ["--records", "100", "108", "200", "--epochs", "5"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal",
+      "justMyCode": false
+    },
+    {
+      "name": "Train: smoke test (1 record, 2 epochs)",
+      "type": "python",
+      "request": "launch",
+      "module": "src.train",
+      "args": ["--records", "100", "--epochs", "2"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Demo: real-time (mock, no models)",
+      "type": "python",
+      "request": "launch",
+      "module": "src.realtime_demo",
+      "args": ["--no-model"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Demo: real-time (with models)",
+      "type": "python",
+      "request": "launch",
+      "module": "src.realtime_demo",
+      "args": ["--record", "208"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Tests: all",
+      "type": "python",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["-v"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    },
+    {
+      "name": "Tests: preprocessing only",
+      "type": "python",
+      "request": "launch",
+      "module": "pytest",
+      "args": ["tests/test_preprocessing.py", "-v"],
+      "cwd": "${workspaceFolder}",
+      "console": "integratedTerminal"
+    }
+  ]
+}
